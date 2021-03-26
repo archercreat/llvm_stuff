@@ -18,6 +18,7 @@
 
 using namespace llvm;
 
+// map of opcode number [lifter_function, instruction size]
 static const std::unordered_map<size_t, std::pair<arch::instruction_t, size_t>> INSTRUCTIONS =
         {
                 { 0x00, { arch::instruction::mov_reg_reg, 3 } },
@@ -35,12 +36,6 @@ static const std::unordered_map<size_t, std::pair<arch::instruction_t, size_t>> 
                 { 0x11, { arch::instruction::jg, 5 } },
                 { 0x0d, { arch::instruction::jne, 5 } },
                 { 0xff, { arch::instruction::ret, 1 } },
-        };
-
-static const std::vector<std::pair<const char*, const void*>> FUNCTIONS =
-        {
-                { "read", (void*)read },
-                { "write", (void*)write }
         };
 
 void handle_instructions( const std::vector<uint8_t>& bytecode, Module& program, IRBuilder<NoFolder>& builder, size_t pc = 0 )
