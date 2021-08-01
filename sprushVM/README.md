@@ -1,3 +1,3 @@
-## LLVM компилятор для байткода виртуальной машины с sprush 2021 цтф.
+## LLVM lifter for vm from sprush ctf
 
-Райтап: https://archercreat.github.io/sprush-llvm/
+Full writeup (rus): https://archercreat.github.io/sprush-llvm/
